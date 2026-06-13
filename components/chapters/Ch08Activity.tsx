@@ -32,13 +32,13 @@ export default function Ch08Activity() {
   const level = ["bg-mute/40", "bg-steel/60", "bg-steel", "bg-accent"];
 
   return (
-    <section id="activity" className="relative mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-32">
+    <section id="activity" className="relative mx-auto max-w-7xl px-5 py-14 sm:py-24 md:px-10 md:py-32">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <ChapterHead num="08" eyebrow="GitHub & Build Activity" title="THE PROOF IS IN THE COMMITS" pop="COMMITS" popTone="steel" />
         <Burst word="PUSH!" tone="steel" />
       </div>
 
-      <div className="mt-14 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="mt-8 grid gap-8 sm:mt-14 lg:grid-cols-[1.2fr_0.8fr]">
         {/* streak field as halftone ink */}
         <PanelIn tilt={-0.6} className="panel p-5 md:p-7">
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -68,7 +68,7 @@ export default function Ch08Activity() {
                 viewport={{ once: true }}
                 transition={{ delay: (i % weeks) * 0.02 + Math.floor(i / weeks) * 0.01, type: "spring", stiffness: 380, damping: 18 }}
                 whileHover={{ scale: 1.6, rotate: 12 }}
-                className={`aspect-square border border-ink/60 ${level[v]}`}
+                className={`aspect-square min-h-[8px] border border-ink/60 ${level[v]}`}
               />
             ))}
           </div>
@@ -80,7 +80,7 @@ export default function Ch08Activity() {
               { n: 3, l: "products launched" },
             ].map((m) => (
               <div key={m.l}>
-                <div className="font-display text-3xl text-accent md:text-4xl">
+                <div className="font-display text-2xl text-accent sm:text-3xl md:text-4xl">
                   <CountUp to={m.n} />
                 </div>
                 <div className="mt-1 font-mono text-xs uppercase tracking-widest text-ink/70">{m.l}</div>
@@ -101,17 +101,19 @@ export default function Ch08Activity() {
                   whileInView={{ x: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="flex items-center justify-between gap-3 border-2 border-ink bg-paper px-3 py-2 shadow-panel-sm"
+                  className="flex flex-col gap-1 border-2 border-ink bg-paper px-4 py-3 shadow-panel-sm sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-3 sm:py-2"
                 >
                   <div>
                     <span className="font-mono text-sm font-bold">{r.name}</span>
                     <p className="text-xs text-ink/60">{r.desc}</p>
                   </div>
-                  <div className="text-right">
-                    <span className="font-mono text-xs text-steel">{r.lang}</span>
-                    <p className={`font-mono text-xs font-bold uppercase ${r.state === "private" ? "text-ink/60" : "text-accent"}`}>
-                      {r.state}
-                    </p>
+                  <div className="text-left sm:text-right">
+                    <div className="flex gap-2 sm:block">
+                      <span className="font-mono text-xs text-steel">{r.lang}</span>
+                      <p className={`font-mono text-xs font-bold uppercase ${r.state === "private" ? "text-ink/60" : "text-accent"}`}>
+                        {r.state}
+                      </p>
+                    </div>
                   </div>
                 </motion.li>
               ))}
@@ -131,10 +133,10 @@ export default function Ch08Activity() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.18 }}
-                    className="flex gap-2 font-mono text-xs leading-snug"
+                    className="flex gap-2 font-mono text-[13px] leading-relaxed sm:text-xs sm:leading-snug"
                   >
                     <span className="text-accent">+</span>
-                    <span className="text-ink/80">{c}</span>
+                    <span className="line-clamp-2 text-ink/80 sm:line-clamp-none">{c}</span>
                   </motion.li>
                 ))}
                 <li className="animate-blink font-mono text-xs text-steel">▮</li>

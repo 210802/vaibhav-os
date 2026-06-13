@@ -48,7 +48,7 @@ function Glyph({ name }: { name: string }) {
 
 export default function Ch02Origin() {
   return (
-    <section id="origin" className="relative mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-32">
+    <section id="origin" className="relative mx-auto max-w-7xl px-5 py-14 sm:py-24 md:px-10 md:py-32">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <ChapterHead num="02" eyebrow="The Origin Story" title="HOW A BUILDER GETS BUILT" pop="BUILDER" />
         <Burst word="ORIGIN!" tone="sun" />
@@ -59,7 +59,7 @@ export default function Ch02Origin() {
       </p>
 
       {/* comic strip */}
-      <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+      <div className="mt-8 grid gap-8 sm:mt-14 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
         {ORIGIN_PANELS.map((p, i) => (
           <PanelIn
             key={p.title}
@@ -77,7 +77,7 @@ export default function Ch02Origin() {
 
             <Glyph name={p.glyph} />
 
-            <h3 className="mt-4 font-display text-2xl uppercase leading-none">{p.title}</h3>
+            <h3 className="mt-4 font-display text-lg uppercase leading-none sm:text-2xl">{p.title}</h3>
 
             {/* speech bubble pops on hover/in-view */}
             <motion.div

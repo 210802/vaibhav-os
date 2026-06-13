@@ -9,7 +9,7 @@ export default function Ch05Thinking() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="thinking" className="relative mx-auto max-w-5xl px-5 py-24 md:px-10 md:py-32">
+    <section id="thinking" className="relative mx-auto max-w-5xl px-5 py-14 sm:py-24 md:px-10 md:py-32">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <ChapterHead num="05" eyebrow="How I Think" title="NOT SKILLS. OPERATING PRINCIPLES." pop="OPERATING" popTone="steel" />
         <Burst word="THINK!" tone="steel" />
@@ -18,7 +18,7 @@ export default function Ch05Thinking() {
         Technologies change every quarter. These don&rsquo;t.
       </p>
 
-      <div className="mt-14 space-y-4">
+      <div className="mt-8 space-y-4 sm:mt-14">
         {THINKING_CARDS.map((c, i) => {
           const isOpen = open === i;
           return (
@@ -35,7 +35,7 @@ export default function Ch05Thinking() {
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left md:px-7"
+                className="flex min-h-[48px] w-full items-center justify-between gap-4 px-5 py-4 text-left md:px-7"
                 data-hot
               >
                 <span className="flex items-center gap-4">

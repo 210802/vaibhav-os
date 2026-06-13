@@ -23,7 +23,7 @@ export default function Ch01Opening() {
     <section
       id="boot"
       ref={ref}
-      className="relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-16 md:pt-16"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pb-12 pt-20 sm:pb-20 md:pt-16"
     >
       {/* corner OS label */}
       <motion.p
@@ -41,7 +41,7 @@ export default function Ch01Opening() {
           {HERO_LINES.map((l, i) => (
             <h1
               key={l.text}
-              className={`knockout block text-[clamp(2.2rem,7.5vw,6.2rem)] ${toneClass[l.tone]}`}
+              className={`knockout block text-[clamp(1.8rem,6.5vw,6.2rem)] ${toneClass[l.tone]}`}
               style={{ transform: `rotate(${i % 2 === 0 ? -1 : 0.8}deg)` }}
             >
               <Words text={l.text} delay={2.2 + i * 0.55} stagger={0.05} />
@@ -52,7 +52,7 @@ export default function Ch01Opening() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 4.6 }}
-            className="max-w-md pt-4 font-hand text-2xl leading-snug text-ink/80 md:text-3xl"
+            className="max-w-md pt-4 font-hand text-xl leading-snug text-ink/80 sm:text-2xl md:text-3xl"
           >
             — {FOUNDER.name}. Startup founder, AI builder, systems thinker.
           </motion.p>
@@ -86,9 +86,9 @@ export default function Ch01Opening() {
         {/* parallax art — capped on mobile so text stays visible above the fold */}
         <motion.div
           style={{ y: artY }}
-          className="order-first mx-auto w-full max-w-md overflow-hidden md:order-last md:max-w-none"
+          className="order-first mx-auto w-full max-w-xs overflow-hidden sm:max-w-md md:order-last md:max-w-none"
         >
-          <div className="max-h-[50vh] overflow-hidden md:max-h-none">
+          <div className="max-h-[45vh] overflow-hidden sm:max-h-none md:max-h-none">
             <FounderStack className="h-auto w-full" />
           </div>
         </motion.div>

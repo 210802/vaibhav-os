@@ -19,7 +19,7 @@ export default function Ch03BrainMap() {
     BRAIN_EDGES.filter(([a, b]) => a === id || b === id).flatMap((e) => e);
 
   return (
-    <section id="brain" className="relative mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-32">
+    <section id="brain" className="relative mx-auto max-w-7xl px-5 py-14 sm:py-24 md:px-10 md:py-32">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <ChapterHead num="03" eyebrow="The Brain Map" title="EVERYTHING IS CONNECTED" pop="CONNECTED" popTone="steel" />
         <Burst word="WIRED!" tone="steel" />
@@ -35,7 +35,7 @@ export default function Ch03BrainMap() {
         whileInView={{ opacity: 1, y: 0, rotate: -0.6 }}
         viewport={{ once: true, margin: "-10% 0px" }}
         transition={{ type: "spring", stiffness: 120, damping: 16 }}
-        className="panel mt-14 overflow-hidden"
+        className="panel mt-8 overflow-hidden sm:mt-14"
       >
         {/* graph title bar like an OS window */}
         <div className="flex items-center gap-2 border-b-[3px] border-ink bg-mute/40 px-4 py-2">

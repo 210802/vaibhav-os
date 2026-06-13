@@ -65,7 +65,7 @@ function FlowDiagram({ stages, tone }: { stages: readonly string[]; tone: string
 
 export default function Ch04Products() {
   return (
-    <section id="products" className="relative mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-32">
+    <section id="products" className="relative mx-auto max-w-7xl px-5 py-14 sm:py-24 md:px-10 md:py-32">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <ChapterHead num="04" eyebrow="The Products" title="NOT PROJECTS. COMPANIES." pop="COMPANIES." />
         <Burst word="SHIP!" />
@@ -74,7 +74,7 @@ export default function Ch04Products() {
         Three case studies. Each one started as a problem that wouldn&rsquo;t leave me alone.
       </p>
 
-      <div className="mt-16 space-y-20">
+      <div className="mt-10 space-y-20 sm:mt-16">
         {PRODUCTS.map((p, idx) => (
           <PanelIn key={p.id} tilt={idx % 2 === 0 ? -0.8 : 0.8} className="panel relative p-0">
             {/* case-study header bar */}

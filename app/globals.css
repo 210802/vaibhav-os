@@ -28,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 html.lenis,
@@ -72,7 +73,14 @@ body {
 @media (max-width: 639px) {
   .knockout {
     -webkit-text-stroke: 1px rgb(var(--ink));
-    text-shadow: 3px 3px 0 rgb(var(--ink));
+    text-shadow: 2px 2px 0 rgb(var(--ink));
+  }
+  .panel {
+    box-shadow: 4px 4px 0 0 rgb(var(--ink));
+  }
+  .panel:active,
+  .panel:hover {
+    box-shadow: 6px 6px 0 0 rgb(var(--ink));
   }
 }
 .knockout-quiet {

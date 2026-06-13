@@ -13,7 +13,7 @@ import { Ch09Manifesto, Ch10Contact } from "@/components/chapters/Ch09Ch10";
 
 export default function Home() {
   return (
-    <main className="relative overflow-x-hidden">
+    <main className="relative overflow-x-clip">
       <Preloader />
       <CursorTrail />
       <ThemeToggle />

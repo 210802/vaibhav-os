@@ -51,7 +51,7 @@ export default function Ch07Timeline() {
   }, []);
 
   return (
-    <section id="timeline" className="relative py-24 md:py-32">
+    <section id="timeline" className="relative py-14 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <ChapterHead num="07" eyebrow="Timeline of Builds" title="WINS, WRECKS & WHAT'S NEXT" pop="WRECKS" />

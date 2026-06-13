@@ -14,6 +14,7 @@ const BOOT_LINES = ["booting founder os…", "mounting systems…", "loading pro
 export function Preloader() {
   const [done, setDone] = useState(false);
   const [line, setLine] = useState(0);
+  const [mob, setMob] = useState(false);
   const reduced = useReducedMotion();
 
   useEffect(() => {
@@ -21,8 +22,10 @@ export function Preloader() {
       setDone(true);
       return;
     }
-    const lineTimer = setInterval(() => setLine((l) => (l + 1) % BOOT_LINES.length), 520);
-    const doneTimer = setTimeout(() => setDone(true), 2100);
+    const isMob = window.innerWidth < 768;
+    setMob(isMob);
+    const lineTimer = setInterval(() => setLine((l) => (l + 1) % BOOT_LINES.length), isMob ? 600 : 520);
+    const doneTimer = setTimeout(() => setDone(true), isMob ? 3000 : 2100);
     return () => {
       clearInterval(lineTimer);
       clearTimeout(doneTimer);
@@ -48,20 +51,20 @@ export function Preloader() {
           </motion.h1>
 
           {/* segmented comic loading bar */}
-          <div className="flex h-5 w-56 gap-1 border-[3px] border-ink bg-paper p-[3px] shadow-panel-sm">
+          <div className="flex h-5 w-[75vw] gap-1 border-[3px] border-ink bg-paper p-[3px] shadow-panel-sm sm:w-56">
             {Array.from({ length: 10 }).map((_, i) => (
               <motion.span
                 key={i}
                 className="h-full flex-1 bg-accent"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
-                transition={{ delay: 0.15 + i * 0.16, duration: 0.12 }}
+                transition={{ delay: 0.15 + i * (mob ? 0.24 : 0.16), duration: 0.12 }}
                 style={{ originY: 1 }}
               />
             ))}
           </div>
 
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-ink/60" aria-live="polite">
+          <p className="font-mono text-sm uppercase tracking-[0.3em] text-ink/60 sm:text-xs" aria-live="polite">
             {BOOT_LINES[line]}
           </p>
         </motion.div>
@@ -193,7 +196,7 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(dark ? "light" : "dark")}
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-      className="panel panel-press fixed right-4 top-4 z-[70] flex h-11 w-11 -rotate-2 items-center justify-center"
+      className="panel panel-press fixed z-[70] flex h-11 w-11 -rotate-2 items-center justify-center right-4 bottom-[calc(1.5rem+env(safe-area-inset-bottom))] sm:bottom-auto sm:top-4"
       data-hot
     >
       {!mounted ? (
