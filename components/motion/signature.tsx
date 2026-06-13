@@ -114,7 +114,7 @@ export function Marquee({ words, reverse = false }: { words: string[]; reverse?:
   return (
     <div
       aria-hidden
-      className="relative z-10 -rotate-1 overflow-hidden border-y-[3px] border-ink bg-accent py-3 shadow-panel-sm"
+      className="relative z-10 -rotate-1 overflow-x-clip border-y-[3px] border-ink bg-accent py-3 shadow-panel-sm"
     >
       <div
         className={clsx("flex w-max animate-marquee gap-10 whitespace-nowrap", reverse && "[animation-direction:reverse]")}

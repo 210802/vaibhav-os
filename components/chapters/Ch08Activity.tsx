@@ -122,22 +122,26 @@ export default function Ch08Activity() {
             <div className="border-b-[3px] border-ink bg-ink px-4 py-2 font-mono text-xs uppercase tracking-[0.3em] text-paper">
               git log --recent
             </div>
-            <ul className="space-y-2 p-4">
-              {COMMITS.map((c, i) => (
-                <motion.li
-                  key={c}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.18 }}
-                  className="flex gap-2 font-mono text-xs leading-snug"
-                >
-                  <span className="text-accent">+</span>
-                  <span className="text-ink/80">{c}</span>
-                </motion.li>
-              ))}
-              <li className="animate-blink font-mono text-xs text-steel">▮</li>
-            </ul>
+            <div className="relative">
+              <ul className="max-h-[220px] space-y-2 overflow-hidden p-4 sm:max-h-none">
+                {COMMITS.map((c, i) => (
+                  <motion.li
+                    key={c}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + i * 0.18 }}
+                    className="flex gap-2 font-mono text-xs leading-snug"
+                  >
+                    <span className="text-accent">+</span>
+                    <span className="text-ink/80">{c}</span>
+                  </motion.li>
+                ))}
+                <li className="animate-blink font-mono text-xs text-steel">▮</li>
+              </ul>
+              {/* fade-bottom hint — visible on mobile when list is clipped */}
+              <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-paper to-transparent sm:hidden" />
+            </div>
           </PanelIn>
         </div>
       </div>

@@ -34,7 +34,7 @@ export default function Ch06Command() {
         <div className="border-b-[3px] border-ink px-5 py-5 md:px-8">
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-ink/60">{COMMAND_CENTER.focus.label}</p>
           <div className="mt-2 flex flex-wrap items-center gap-5">
-            <h3 className="font-display text-3xl uppercase md:text-4xl">{COMMAND_CENTER.focus.value}</h3>
+            <h3 className="truncate font-display text-2xl uppercase sm:text-3xl md:text-4xl">{COMMAND_CENTER.focus.value}</h3>
             <div className="flex items-center gap-2">
               <div className="h-4 w-40 border-2 border-ink p-[2px]">
                 <motion.div
@@ -85,7 +85,7 @@ export default function Ch06Command() {
         <div className="grid grid-cols-2 gap-px border-t-[3px] border-ink bg-ink/20 md:grid-cols-4">
           {COMMAND_CENTER.metrics.map((m) => (
             <div key={m.label} className="bg-paper px-5 py-6 text-center">
-              <div className="knockout-quiet font-display text-5xl text-accent md:text-6xl">
+              <div className="knockout-quiet font-display text-4xl text-accent sm:text-5xl md:text-6xl">
                 <CountUp to={m.value} />
               </div>
               <div className="mt-1 font-mono text-xs uppercase tracking-[0.25em] text-ink/70">{m.label}</div>

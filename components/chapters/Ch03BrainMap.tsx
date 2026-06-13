@@ -25,7 +25,9 @@ export default function Ch03BrainMap() {
         <Burst word="WIRED!" tone="steel" />
       </div>
       <p className="mt-6 max-w-xl font-hand text-2xl text-ink/70">
-        Hover a node — systems thinking means the edges matter more than the dots.
+        <span className="hidden sm:inline">Hover</span>
+        <span className="sm:hidden">Tap</span>
+        {" "}a node — systems thinking means the edges matter more than the dots.
       </p>
 
       <motion.div
@@ -43,7 +45,9 @@ export default function Ch03BrainMap() {
           <span className="ml-2 font-mono text-xs uppercase tracking-[0.3em] text-ink/60">brain_map.graph</span>
         </div>
 
-        <svg viewBox={`0 0 ${W} ${H}`} className="halftone block w-full" role="img" aria-label="Interest graph: AI, systems, finance, automation, products, trading, behavior design, business — all interconnected">
+        {/* On mobile the SVG scrolls horizontally inside a capped container so nodes stay usable */}
+        <div className="overflow-x-auto no-scrollbar sm:overflow-visible">
+        <svg viewBox={`0 0 ${W} ${H}`} className="halftone block min-w-[560px] w-full sm:min-w-0" role="img" aria-label="Interest graph: AI, systems, finance, automation, products, trading, behavior design, business — all interconnected">
           {/* edges */}
           {BRAIN_EDGES.map(([a, b], i) => {
             const A = node(a);
@@ -84,6 +88,8 @@ export default function Ch03BrainMap() {
                 transition={{ delay: 0.2 + i * 0.07, type: "spring", stiffness: 280, damping: 13 }}
                 onMouseEnter={() => setHot(n.id)}
                 onMouseLeave={() => setHot(null)}
+                onTouchStart={(e) => { e.stopPropagation(); setHot(n.id); }}
+                onTouchEnd={() => setHot(null)}
                 onFocus={() => setHot(n.id)}
                 onBlur={() => setHot(null)}
                 tabIndex={0}
@@ -122,6 +128,11 @@ export default function Ch03BrainMap() {
             );
           })}
         </svg>
+        </div>{/* end scroll wrapper */}
+        {/* mobile-only swipe hint */}
+        <p className="px-4 pb-1 pt-0.5 font-mono text-[10px] uppercase tracking-widest text-ink/40 sm:hidden">
+          ← swipe to explore →
+        </p>
 
         <div className="border-t-[3px] border-ink px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink/60">
           {hot ? (

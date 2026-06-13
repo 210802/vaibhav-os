@@ -21,7 +21,7 @@ export function Ch09Manifesto() {
 
       <div className="mt-16 space-y-8 md:space-y-12">
         {MANIFESTO.map((m, i) => (
-          <div key={m.line} className="flex items-baseline gap-4 md:gap-8" style={{ marginLeft: `${(i % 3) * 4}%` }}>
+          <div key={m.line} className="flex items-baseline gap-4 md:gap-8" style={{ marginLeft: `${(i % 3) * 2}%` }}>
             <span className="font-mono text-sm font-bold text-ink/40">0{i + 1}</span>
             <h3 className={`knockout text-[clamp(1.9rem,6vw,4.8rem)] ${tone[m.tone]}`} style={{ rotate: `${i % 2 === 0 ? -1 : 1}deg` }}>
               <Words text={m.line} stagger={0.07} />
@@ -103,7 +103,7 @@ function ChannelCard({ c, i }: { c: Channel; i: number }) {
 
 export function Ch10Contact() {
   return (
-    <section id="contact" className="relative mx-auto max-w-6xl px-5 pb-16 pt-24 md:px-10 md:pt-32">
+    <section id="contact" className="contact-section relative mx-auto max-w-6xl px-5 pb-16 pt-16 md:px-10 md:pt-32">
       <div className="panel scanlines overflow-hidden">
         {/* mission control header */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-[3px] border-ink bg-ink px-5 py-3 text-paper">
@@ -129,7 +129,7 @@ export function Ch10Contact() {
             <Magnetic strength={0.45}>
               <a
                 href={`mailto:${FOUNDER.email}?subject=Let%27s%20build%20something%20impossible`}
-                className="group inline-flex -rotate-1 items-center gap-3 border-[3px] border-ink bg-accent px-8 py-4 font-display text-2xl uppercase tracking-wide text-paper shadow-panel-lg transition-transform hover:translate-x-[-3px] hover:translate-y-[-3px] md:text-3xl"
+                className="group inline-flex -rotate-1 items-center gap-2 border-[3px] border-ink bg-accent px-5 py-3 font-display text-xl uppercase tracking-wide text-paper shadow-panel-lg transition-transform hover:translate-x-[-3px] hover:translate-y-[-3px] sm:gap-3 sm:px-8 sm:py-4 sm:text-2xl md:text-3xl"
                 data-hot
               >
                 Let&rsquo;s talk

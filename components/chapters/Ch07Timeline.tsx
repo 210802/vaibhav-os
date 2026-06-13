@@ -62,10 +62,17 @@ export default function Ch07Timeline() {
         </p>
       </div>
 
+      {/* mobile swipe hint — fades in after mount */}
+      <p className="mt-4 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-widest text-ink/40 lg:hidden">
+        <span className="animate-bounce inline-block">→</span> swipe to explore
+      </p>
+
       {/* pinned horizontal rail on desktop; swipeable on touch */}
-      <div ref={sectionRef} className="relative mt-10 flex min-h-[70vh] items-center overflow-hidden lg:min-h-screen">
+      <div ref={sectionRef} className="relative mt-4 flex min-h-[70vh] items-center overflow-hidden lg:mt-10 lg:min-h-screen">
         {/* the wire the cards hang from */}
         <div aria-hidden className="absolute left-0 right-0 top-1/2 hidden h-1 -translate-y-1/2 bg-ink lg:block" />
+        {/* right-edge fade scroll affordance — mobile only */}
+        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-paper to-transparent lg:hidden" />
 
         <div
           ref={trackRef}
@@ -76,7 +83,7 @@ export default function Ch07Timeline() {
             return (
               <article
                 key={`${t.year}-${t.title}`}
-                className={`panel panel-press relative w-72 shrink-0 p-5 lg:w-80 ${i % 2 === 0 ? "lg:-translate-y-10 lg:-rotate-1" : "lg:translate-y-10 lg:rotate-1"}`}
+                className={`panel panel-press relative w-64 shrink-0 p-5 sm:w-72 lg:w-80 ${i % 2 === 0 ? "lg:-translate-y-10 lg:-rotate-1" : "lg:translate-y-10 lg:rotate-1"}`}
                 data-hot
               >
                 {/* hanger pin */}

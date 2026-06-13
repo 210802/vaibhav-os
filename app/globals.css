@@ -69,9 +69,9 @@ body {
   paint-order: stroke fill;
   text-shadow: 5px 5px 0 rgb(var(--ink));
 }
-@media (max-width: 640px) {
+@media (max-width: 639px) {
   .knockout {
-    -webkit-text-stroke: 1.5px rgb(var(--ink));
+    -webkit-text-stroke: 1px rgb(var(--ink));
     text-shadow: 3px 3px 0 rgb(var(--ink));
   }
 }
@@ -171,6 +171,15 @@ body {
 /* Hide scrollbar on the horizontal timeline rail */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ---------------------------------------------------------------------------
+   iOS SAFE AREA — home indicator clearance
+--------------------------------------------------------------------------- */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .contact-section {
+    padding-bottom: max(4rem, env(safe-area-inset-bottom));
+  }
+}
 
 /* ---------------------------------------------------------------------------
    DARK MODE — boost contrast for text-heavy elements

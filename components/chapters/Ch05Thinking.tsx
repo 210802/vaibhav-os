@@ -46,7 +46,7 @@ export default function Ch05Thinking() {
                   >
                     {c.stamp}
                   </span>
-                  <span className="font-display text-2xl uppercase md:text-3xl">{c.title}</span>
+                  <span className="font-display text-lg uppercase sm:text-2xl md:text-3xl">{c.title}</span>
                 </span>
                 <motion.span
                   animate={{ rotate: isOpen ? 45 : 0 }}

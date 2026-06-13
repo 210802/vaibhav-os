@@ -20,7 +20,8 @@ const accentText: Record<string, string> = {
 function FlowDiagram({ stages, tone }: { stages: readonly string[]; tone: string }) {
   const reduced = useReducedMotion();
   return (
-    <div className="mt-4 overflow-x-auto no-scrollbar">
+    <div className="relative mt-4">
+      <div className="overflow-x-auto no-scrollbar">
       <svg viewBox={`0 0 ${stages.length * 150} 84`} className="h-20 w-full min-w-[460px]" aria-label={`Architecture: ${stages.join(" → ")}`}>
         {stages.map((s, i) => (
           <g key={s}>
@@ -55,6 +56,9 @@ function FlowDiagram({ stages, tone }: { stages: readonly string[]; tone: string
           </g>
         ))}
       </svg>
+      </div>{/* end overflow-x-auto */}
+      {/* fade-right scroll affordance, mobile only */}
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-paper to-transparent md:hidden" />
     </div>
   );
 }
@@ -84,7 +88,7 @@ export default function Ch04Products() {
             <div className="grid gap-8 p-5 md:grid-cols-[1fr_1fr] md:gap-12 md:p-8">
               {/* left: narrative */}
               <div>
-                <h3 className={`knockout text-5xl md:text-7xl ${accentText[p.accent]}`}>{p.name}</h3>
+                <h3 className={`knockout break-words text-3xl sm:text-4xl md:text-7xl ${accentText[p.accent]}`}>{p.name}</h3>
                 <p className="mt-3 font-hand text-2xl text-ink/80">{p.tagline}</p>
 
                 <div className="mt-8 space-y-6">

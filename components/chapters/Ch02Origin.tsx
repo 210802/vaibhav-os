@@ -65,7 +65,7 @@ export default function Ch02Origin() {
             key={p.title}
             delay={i * 0.1}
             tilt={i % 2 === 0 ? -1.5 : 1.5}
-            className="panel panel-press group relative flex flex-col p-5"
+            className={`panel panel-press group relative flex flex-col overflow-hidden p-5${i === 4 ? " sm:col-span-2 lg:col-span-1" : ""}`}
             data-hot
           >
             {/* halftone header strip */}
@@ -85,7 +85,7 @@ export default function Ch02Origin() {
               whileInView={{ scale: 1, rotate: -2 }}
               viewport={{ once: true }}
               transition={{ delay: 0.35 + i * 0.12, type: "spring", stiffness: 300, damping: 14 }}
-              className="relative mt-4 border-2 border-ink bg-paper p-3 shadow-panel-sm transition-transform group-hover:-rotate-1 group-hover:scale-[1.03]"
+              className="relative mt-4 w-full max-w-full border-2 border-ink bg-paper p-3 shadow-panel-sm transition-transform group-hover:-rotate-1 group-hover:scale-[1.03]"
             >
               <p className="font-hand text-xl leading-tight">&ldquo;{p.bubble}&rdquo;</p>
               {/* bubble tail */}

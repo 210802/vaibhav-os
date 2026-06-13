@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#FAFAF7" },
     { media: "(prefers-color-scheme: dark)", color: "#0D1117" },
@@ -33,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${display.variable} ${body.variable} ${mono.variable} ${marker.variable} ${hand.variable} grain`}
+        className={`${display.variable} ${body.variable} ${mono.variable} ${marker.variable} ${hand.variable} grain overflow-x-hidden`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SmoothScroll>{children}</SmoothScroll>

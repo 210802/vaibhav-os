@@ -42,7 +42,7 @@ export function Preloader() {
             initial={{ scale: 0.4, rotate: -8, opacity: 0 }}
             animate={{ scale: 1, rotate: -3, opacity: 1 }}
             transition={{ type: "spring", stiffness: 260, damping: 13 }}
-            className="knockout text-6xl text-accent md:text-8xl"
+            className="knockout text-5xl text-accent sm:text-6xl md:text-8xl"
           >
             {FOUNDER.name.split(" ")[0]}!
           </motion.h1>

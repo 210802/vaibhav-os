@@ -23,7 +23,7 @@ export default function Ch01Opening() {
     <section
       id="boot"
       ref={ref}
-      className="relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-24 md:pt-16"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-16 md:pt-16"
     >
       {/* corner OS label */}
       <motion.p
@@ -37,7 +37,7 @@ export default function Ch01Opening() {
 
       <motion.div style={{ opacity: fade }} className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-5 md:grid-cols-[1.15fr_0.85fr] md:px-10">
         {/* the four statements */}
-        <motion.div style={{ y: typeY }} className="space-y-3 md:space-y-5">
+        <motion.div style={{ y: typeY }} className="order-last space-y-3 md:order-first md:space-y-5">
           {HERO_LINES.map((l, i) => (
             <h1
               key={l.text}
@@ -83,9 +83,14 @@ export default function Ch01Opening() {
           </motion.div>
         </motion.div>
 
-        {/* parallax art */}
-        <motion.div style={{ y: artY }} className="mx-auto w-full max-w-md md:max-w-none">
-          <FounderStack className="h-auto w-full" />
+        {/* parallax art — capped on mobile so text stays visible above the fold */}
+        <motion.div
+          style={{ y: artY }}
+          className="order-first mx-auto w-full max-w-md overflow-hidden md:order-last md:max-w-none"
+        >
+          <div className="max-h-[50vh] overflow-hidden md:max-h-none">
+            <FounderStack className="h-auto w-full" />
+          </div>
         </motion.div>
       </motion.div>
 
